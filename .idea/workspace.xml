@@ -25,12 +25,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89f789d5-5e3f-4715-bc4d-2b5721fbcc72" name="Default Changelist" comment="Initial commit with WIP bot">
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env.sample" beforeDir="false" afterPath="$PROJECT_DIR$/env.sample" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flags.sample" beforeDir="false" afterPath="$PROJECT_DIR$/flags.sample" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +36,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="zvxfmisw" />
@@ -67,14 +65,9 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
-    <property name="settings.editor.selected.configurable" value="language.rust.rustfmt" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run --package flagbot --bin flagbot" />
@@ -85,6 +78,11 @@
       <envs />
       <method v="2">
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -102,6 +100,7 @@
       <updated>1603572743814</updated>
       <workItem from="1603572746359" duration="5632000" />
       <workItem from="1603637813300" duration="7492000" />
+      <workItem from="1603646263668" duration="3304000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit with WIP bot">
       <created>1603578091136</created>
@@ -161,10 +160,14 @@
       <screen x="1680" y="84" width="1920" height="1080" />
     </state>
     <state x="2268" y="209" width="794" height="863" key="CommitChangelistDialog2/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603578070157" />
+    <state x="2174" y="272" width="992" height="737" key="SettingsEditor" timestamp="1603646240425">
+      <screen x="1680" y="84" width="1920" height="1080" />
+    </state>
     <state x="0" y="111" width="1680" height="1080" key="SettingsEditor.inPresentationMode" timestamp="1603574810037">
       <screen x="0" y="111" width="1680" height="939" />
     </state>
     <state x="0" y="111" width="1680" height="1080" key="SettingsEditor.inPresentationMode/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603574810037" />
+    <state x="2174" y="272" width="992" height="737" key="SettingsEditor/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603646240425" />
     <state width="553" height="568" key="SwitcherDM.inPresentationMode" timestamp="1603573909844">
       <screen x="1680" y="84" width="1920" height="1080" />
     </state>
@@ -177,13 +180,13 @@
       <screen x="1680" y="84" width="1920" height="1080" />
     </state>
     <state x="2474" y="549" width="381" height="183" key="git4idea.remote.GitConfigureRemotesDialog/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603578203502" />
-    <state x="2333" y="343" width="672" height="678" key="search.everywhere.popup" timestamp="1603645196991">
+    <state x="2333" y="343" width="672" height="678" key="search.everywhere.popup" timestamp="1603652027858">
       <screen x="1680" y="84" width="1920" height="1080" />
     </state>
     <state x="2049" y="84" width="1177" height="1976" key="search.everywhere.popup.inPresentationMode" timestamp="1603577402646">
       <screen x="1680" y="84" width="1920" height="1080" />
     </state>
     <state x="2049" y="84" width="1177" height="1976" key="search.everywhere.popup.inPresentationMode/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603577402646" />
-    <state x="2333" y="343" width="672" height="678" key="search.everywhere.popup/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603645196991" />
+    <state x="2333" y="343" width="672" height="678" key="search.everywhere.popup/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603652027858" />
   </component>
 </project>
