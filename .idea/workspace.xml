@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated />
   </component>
@@ -12,14 +24,13 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89f789d5-5e3f-4715-bc4d-2b5721fbcc72" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/flagbot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flags.sample" afterDir="false" />
+    <list default="true" id="89f789d5-5e3f-4715-bc4d-2b5721fbcc72" name="Default Changelist" comment="Initial commit with WIP bot">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env.sample" beforeDir="false" afterPath="$PROJECT_DIR$/env.sample" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flags.sample" beforeDir="false" afterPath="$PROJECT_DIR$/flags.sample" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +70,11 @@
     <property name="settings.editor.selected.configurable" value="language.rust.rustfmt" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run --package flagbot --bin flagbot" />
@@ -71,25 +87,10 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
-      <option name="channel" value="DEFAULT" />
-      <option name="command" value="run" />
-      <option name="allFeatures" value="false" />
-      <option name="emulateTerminal" value="false" />
-      <option name="backtrace" value="SHORT" />
-      <envs />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
+    <option name="version" value="2" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -99,15 +100,45 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603572743814</updated>
-      <workItem from="1603572746359" duration="5300000" />
+      <workItem from="1603572746359" duration="5632000" />
+      <workItem from="1603637813300" duration="7492000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial commit with WIP bot">
+      <created>1603578091136</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603578091137</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Initial commit with WIP bot">
+      <created>1603578206562</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603578206562</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Initial commit with WIP bot" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit with WIP bot" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2402" y="442" width="525" height="397" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603578014893">
@@ -118,10 +149,18 @@
     </state>
     <state x="2201" y="360" width="868" height="498" key="#com.intellij.fileTypes.FileTypeChooser.inPresentationMode/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603575798394" />
     <state x="2402" y="442" width="525" height="397" key="#com.intellij.fileTypes.FileTypeChooser/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603578014893" />
+    <state x="2478" y="356" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1603642525378">
+      <screen x="1680" y="84" width="1920" height="1080" />
+    </state>
     <state x="2307" y="124" width="655" height="970" key="#com.intellij.ide.util.MemberChooser.inPresentationMode" timestamp="1603574324149">
       <screen x="1680" y="84" width="1920" height="1080" />
     </state>
     <state x="2307" y="124" width="655" height="970" key="#com.intellij.ide.util.MemberChooser.inPresentationMode/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603574324149" />
+    <state x="2478" y="356" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603642525378" />
+    <state x="2268" y="209" width="794" height="863" key="CommitChangelistDialog2" timestamp="1603578070157">
+      <screen x="1680" y="84" width="1920" height="1080" />
+    </state>
+    <state x="2268" y="209" width="794" height="863" key="CommitChangelistDialog2/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603578070157" />
     <state x="0" y="111" width="1680" height="1080" key="SettingsEditor.inPresentationMode" timestamp="1603574810037">
       <screen x="0" y="111" width="1680" height="939" />
     </state>
@@ -130,13 +169,21 @@
       <screen x="1680" y="84" width="1920" height="1080" />
     </state>
     <state width="553" height="568" key="SwitcherDM.inPresentationMode/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603573909844" />
-    <state x="2474" y="549" width="381" height="183" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603577966450">
+    <state x="2265" y="373" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603578247664">
       <screen x="1680" y="84" width="1920" height="1080" />
     </state>
-    <state x="2474" y="549" width="381" height="183" key="git4idea.remote.GitConfigureRemotesDialog/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603577966450" />
+    <state x="2265" y="373" width="800" height="535" key="Vcs.Push.Dialog.v2/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603578247664" />
+    <state x="2474" y="549" width="381" height="183" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603578203502">
+      <screen x="1680" y="84" width="1920" height="1080" />
+    </state>
+    <state x="2474" y="549" width="381" height="183" key="git4idea.remote.GitConfigureRemotesDialog/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603578203502" />
+    <state x="2333" y="343" width="672" height="678" key="search.everywhere.popup" timestamp="1603645196991">
+      <screen x="1680" y="84" width="1920" height="1080" />
+    </state>
     <state x="2049" y="84" width="1177" height="1976" key="search.everywhere.popup.inPresentationMode" timestamp="1603577402646">
       <screen x="1680" y="84" width="1920" height="1080" />
     </state>
     <state x="2049" y="84" width="1177" height="1976" key="search.everywhere.popup.inPresentationMode/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603577402646" />
+    <state x="2333" y="343" width="672" height="678" key="search.everywhere.popup/1680.84.1920.1080/0.111.1680.939@1680.84.1920.1080" timestamp="1603645196991" />
   </component>
 </project>
