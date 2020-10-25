@@ -1,8 +1,9 @@
 use log::{debug, error, info};
 use regex::Regex;
-use serenity::model::event::ResumedEvent;
 use serenity::{
-    model::{channel::Message, gateway::Ready, prelude::*},
+    model::{
+        channel::Message, event::ResumedEvent, gateway::Ready, guild::PartialGuild, id::RoleId,
+    },
     prelude::*,
 };
 use std::collections::HashMap;
@@ -13,6 +14,18 @@ struct GuildId;
 
 impl TypeMapKey for GuildId {
     type Value = PartialGuild;
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+enum Error {
+    UserFacingError(String),
+    InternalError(String),
+}
+
+impl From<serenity::Error> for Error {
+    fn from(err: serenity::Error) -> Self {
+        Self::InternalError(format!("Serenity error: {:?}", err))
+    }
 }
 
 struct FlagCommand {
@@ -38,6 +51,32 @@ impl FlagCommand {
             flags,
         })
     }
+
+    fn help(&self) -> &'static str {
+        "Tu peux rentrer ton flag comme ceci: `!flag <flag>`. Le flag est de la forme `CA{c0dE_4n0n}`. Bonne chance ! :pirate_flag:"
+    }
+
+    fn flag(&self, ctx: &Context, msg: &Message, flag: &str) -> Result<String, Error> {
+        if !self.regex.is_match(flag) {
+            return Err(Error::UserFacingError(
+                "Le flag donné n'a pas la bonne forme. Il ressemble à ça: `CA{c0dE_4n0n}`."
+                    .to_string(),
+            ));
+        }
+        let role = self
+            .flags
+            .get(flag)
+            .ok_or(Error::UserFacingError("Ce flag n'existe pas.".to_string()))?;
+        let readref = ctx.data.read();
+        let guild = readref.get::<GuildId>().unwrap();
+        let role = guild
+            .roles
+            .get(role)
+            .ok_or(Error::InternalError("Couldn't get role id".to_string()))?;
+        let mut member = guild.member(&ctx.http, msg.author.id)?;
+        member.add_role(&ctx.http, role)?;
+        Ok(format!("Bravo, tu as trouvé le flag ! Tu as désormais le rôle `{}` sur le Discord CodeAnon ! :flag_black:", role.name))
+    }
 }
 
 fn reply<S: AsRef<str>>(ctx: &Context, msg: &Message, content: S) {
@@ -52,36 +91,9 @@ impl EventHandler for FlagCommand {
         debug!("Message: @{}: {}", msg.author.name, content);
         if content.starts_with("!flag") {
             let flag = content[5..].trim();
-            if self.regex.is_match(flag) {
-                if let Some(role) = self.flags.get(flag) {
-                    let readref = ctx.data.read();
-                    let guild = readref.get::<GuildId>().unwrap();
-                    if let Some(role) = guild.roles.get(role) {
-                        if let Err(err) = guild
-                            .member(&ctx.http, msg.author.id)
-                            .and_then(|mut m| m.add_role(&ctx.http, role.id))
-                        {
-                            error!("Error assigning role to member: {:?}", err);
-                            reply(&ctx, &msg, format!("Tu as trouvé le flag mais malheuresement il y a eu un problème interne au serveur ... Désolé :zany_face:"))
-                        } else {
-                            reply(
-                                &ctx,
-                                &msg,
-                                format!(
-                                    "Tu as trouvé le flag! Tu va être assigné le rôle `{}` ! :flag_black:",
-                                    role.name
-                                ),
-                            );
-                        }
-                    } else {
-                        reply(&ctx, &msg, format!("Tu as trouvé le flag mais malheuresement il y a eu un problème interne au serveur ... Désolé :zany_face:"))
-                    }
-                } else {
-                    reply(&ctx, &msg, "Ce flag n'existe pas.");
-                }
-            } else {
-                reply(&ctx, &msg, "Le flag n'a pas la bonne forme.");
-            }
+            FlagCommand::handle_comand(&ctx, &msg, self.flag(&ctx, &msg, flag));
+        } else if content.starts_with("!help") {
+            reply(&ctx, &msg, format!(":bulb: {}", self.help()));
         }
     }
 
@@ -110,4 +122,14 @@ fn main() {
     )
     .expect("Creating client");
     client.start().expect("Client error");
+}
+
+impl FlagCommand {
+    fn handle_comand(ctx: &Context, msg: &Message, result: Result<String, Error>) {
+        match result {
+            Ok(v) => reply(&ctx, &msg, format!(":white_check_mark: {}", v)),
+            Err(Error::UserFacingError(v)) => reply(&ctx, &msg, format!(":x: {}", v)),
+            Err(Error::InternalError(err)) => error!("{}", err),
+        }
+    }
 }
